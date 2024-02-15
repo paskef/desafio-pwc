@@ -10,7 +10,6 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.util.Arrays;
 
 public class Tela {
 
@@ -105,7 +104,7 @@ public class Tela {
 		JButton btnClear = new JButton("LIMPAR");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				limparCampos();
+				limparCampos(); // Puxa o método para limpar os textFields
 			}
 		});
 		btnClear.setForeground(new Color(210, 210, 210));
@@ -117,7 +116,7 @@ public class Tela {
 		JButton btnExit = new JButton("SAIR");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0); // Encerra o programa.
+				System.exit(0); // Encerra o programa
 			}
 		});
 		btnExit.setForeground(new Color(210, 210, 210));
@@ -127,18 +126,20 @@ public class Tela {
 		frmDesafioPwc.getContentPane().add(btnExit);
 	}
 	
-	private void limparCampos() {
+	public void limparCampos() {
+		
 		// Limpa campos de texto.
 		txtAddress.setText(null);
 		txtAddress_Output.setText(null);
+		
 	}
 	
 	private void processarEndereco() {
 	    String endereco = txtAddress.getText();
 	    String[] resultado = logica.processarEndereco(endereco);
 
-	    // 
-	    txtAddress_Output.setText("{\"" + resultado[0] + "\", \"" + resultado[1] + "\"}");
+	    // Configura a saída
+	    txtAddress_Output.setText("Nome: \"" + resultado[0] + "\"  Num: \"" + resultado[1] + "\"");
 	    
 	}
 
