@@ -7,6 +7,11 @@ import javax.swing.JOptionPane;
 
 public class Lógica {
 
+    /**
+     * Processa o endereço fornecido, separando o nome da rua e o número.
+     * @param endereco String contendo informações do endereço concatenado
+     * @return Array de String com duas posições: nome da rua e número
+     */
     public String[] processarEndereco(String endereco) {
         String[] resultado = new String[2];
 
@@ -16,7 +21,6 @@ public class Lógica {
         // Verifica se a string está vazia, caso esteja, fornece uma mensagem de erro
         if (endereco.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, forneça um endereço válido.", "Erro", JOptionPane.ERROR_MESSAGE);
-           
             return resultado;
         }
 
@@ -26,7 +30,6 @@ public class Lógica {
             String[] partes = endereco.split("No");
             resultado[0] = partes[0].trim(); // Nome da rua
             resultado[1] = "No " + partes[1].trim(); // Número da rua
-
             return resultado;
         } else {
             try {
@@ -42,15 +45,16 @@ public class Lógica {
                 Matcher matcherAv = patternAv.matcher(endereco);
                 Matcher matcherNumber = patternNumber.matcher(endereco);
 
+                // Busca pelo nome da rua
                 if (matcherAv.find()) {
                     resultado[0] = matcherAv.group(1).trim(); 
                 } else {
                     // Exibir mensagem se não for possível encontrar o nome da rua
                     JOptionPane.showMessageDialog(null, "Não foi possível encontrar o nome da rua.");
                     resultado[0] = "";
-                    
                 }
 
+                // Busca pelo número da rua
                 if (matcherNumber.find()) {
                     resultado[1] = matcherNumber.group().trim();
                 } else {
