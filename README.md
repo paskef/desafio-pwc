@@ -2,7 +2,7 @@
 >## Sobre o projeto
 O projeto a seguir trata-se de um desafio proposto pela empresa PwC, em que o usuário informa um endereço cujas informações estão concatenadas
 (nome da rua e número na mesma string) e o objetivo é organizar as mesmas.  
-*Para a realização do mesmo foi utilizado o WindowBuilder como ferramenta para a interface gráfica e o código-fonte econtra-se totalmente em Java.* 
+*Para a realização do mesmo foi utilizado o WindowBuilder como ferramenta para a interface gráfica e o código-fonte encontra-se totalmente em Java.* 
 >## Alguns dos exemplos utilizados
 ## Casos simples
 `1. “Miritiba 339” -> {“Miritiba”, “339”}`  
